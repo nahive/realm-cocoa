@@ -149,6 +149,15 @@ using namespace realm;
     return [buffer copy];
 }
 
+- (void)refreshAllSessions {
+    if (!self._refreshToken) {
+        return;
+    }
+    for (NSString *key in self.refreshHandles) {
+        [self.refreshHandles[key] refreshImmediately];
+    }
+}
+
 - (NSString *)identity {
     if (!_user) {
         return nil;

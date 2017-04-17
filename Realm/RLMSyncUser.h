@@ -119,6 +119,12 @@ NS_SWIFT_UNAVAILABLE("Use the full version of this API.");
 - (NSArray<RLMSyncSession *> *)allSessions;
 
 /**
+ Immediately refresh all sessions by contacting the authentication server and requesting
+ fresh tokens.
+ */
+- (void)refreshAllSessions;
+
+/**
  Returns an instance of the Management Realm owned by the user.
 
  This Realm can be used to control access permissions for Realms managed by the user.

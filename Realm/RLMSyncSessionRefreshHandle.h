@@ -26,5 +26,6 @@
 
 - (void)scheduleRefreshTimer:(NSDate *)dateWhenTokenExpires;
 - (void)invalidate;
+- (void)refreshImmediately;
 
 @end

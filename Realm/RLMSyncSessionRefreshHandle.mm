@@ -74,6 +74,13 @@ using namespace realm;
     [self.timer invalidate];
 }
 
+- (void)refreshImmediately {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.timer invalidate];
+        [self _timerFired:nil];
+    });
+}
+
 + (NSDate *)fireDateForTokenExpirationDate:(NSDate *)date nowDate:(NSDate *)nowDate {
     static const NSTimeInterval refreshBuffer = 10;
     NSDate *fireDate = [date dateByAddingTimeInterval:-refreshBuffer];
